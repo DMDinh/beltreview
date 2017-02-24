@@ -1,3 +1,15 @@
+<style>
+  .container {
+    border: 2px solid black;
+    padding: 20px 20px 40px 20px;
+  }
+
+
+
+
+</style>
+
+
 <div class="container">
     <br>
   <div class="info">
@@ -30,8 +42,8 @@
       </table>
     </div>
   </div>
+  <h3 style="border-bottom: 2px solid black;">Comments about this event:</h3>
   <div class="comments" style="height: 300px; widht: 600px; overflow: scroll;">
-    <h3 style="border-bottom: 2px solid black;">Comments about this event:</h3>
       <% @comments.each do |comment| %>
         <p>Posted By: <a href="/user/<%=comment.user.id%>"> <%= comment.user.fname.capitalize %></a></p>
         <p><%= comment.message %></p>

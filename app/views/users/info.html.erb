@@ -4,8 +4,10 @@
   <h2><%= @user.fname.capitalize %>' Profile</h2>
   <h4>Name: <%= @user.fname.capitalize %> <%= @user.lname.capitalize %></h4>
   <h4>Location: <%= @user.city %>, <%= @user.state %></h4>
+  
 
   <div class="table1">
+
     <h3 style="border-bottom: 1px solid black;">Hosting</h3>
     <table class="table">
       <thead>
@@ -47,6 +49,27 @@
           <td><%=event.date %></td>
           <td><%=event.city %></td>
           <td><%=event.state %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="table3">
+    <h3 style="border-bottom: 1px solid black;">Comments</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Message</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @mycomments.each do |comment| %>
+        <tr>
+          <td><%=comment.event.name %></td>
+          <td><%=comment.message %></td>
+          <td><%=comment.created_at %></td>
         </tr>
         <% end %>
       </tbody>

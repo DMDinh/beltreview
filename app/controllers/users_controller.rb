@@ -55,6 +55,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @myevents = @user.events
     @myattends = @user.myevents
+    @mycomments = @user.comments
 
   end
 
@@ -112,6 +113,10 @@ class UsersController < ApplicationController
     redirect_to '/users'
   end
 
+  def destroy_event
+    @event = Event.find(params[:id]).destroy
+    redirect_to '/events'
+  end
 
   private
 

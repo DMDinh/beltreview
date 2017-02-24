@@ -32,5 +32,7 @@ Rails.application.routes.draw do
   get '/user/:id' => 'users#info'
 
   get '/destroy/:id' => 'users#destroy'
+
+  get '/destroy_event/:id' => 'users#destroy_event'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

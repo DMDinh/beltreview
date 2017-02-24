@@ -49,7 +49,7 @@
           <% end %>
 
           <% if @myevents.exists?(:id => event.id) == true %>
-            <a href="/unjoin/<%= event.id %>">Unjoin</a>
+            <a href="/unjoin/<%= event.id %>">Cancel</a>
           <% end %>
 
           <% if @myhosts.exists?(:id => event.id) == true %>
@@ -57,7 +57,7 @@
           <% end %>
 
           <% if @myhosts.exists?(:id => event.id) == true %>
-            <a href="#">Delete</a>
+            <a href="/destroy_event/<%= event.id %>">Delete</a>
           <% end %>
           </td>
         </tr>
@@ -97,7 +97,7 @@
             <% end %>
 
             <% if @myevents.exists?(:id => event.id) == true %>
-              <a href="/unjoin/<%= event.id %>">Unjoin</a>
+              <a href="/unjoin/<%= event.id %>">Cancel</a>
             <% end %>
 
           </td>

@@ -1,0 +1,36 @@
+<body>
+  <div class="container" style="border: 2px solid black;">
+    <h1>Welcome <%=@user.fname.capitalize%>! </h1>
+    <a href="/events">Back to Events</a> | <a href="/logout">Logout</a>
+    <div class="table1">
+      <h3 style="border-bottom: 1px solid black;">All Users Registered</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Events Hosting</th>
+            <th>Events Attending</th>
+            <th>Total Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><a href="/user/<%= user.id%>"><%= user.fname.capitalize %> <%= user.lname.capitalize %></a></td>
+            <td><%= user.email %></td>
+            <td><%= user.city %></td>
+            <td><%= user.state %></td>
+            <td><%= user.events.count %></td>
+            <td><%= user.myevents.count %></td>
+            <td><%= user.comments.count %></td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+</body>

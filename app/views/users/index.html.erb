@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+
+.signup {
+  width: 400px;
+  display: inline-block;
+  padding-left: 100px;
+
+}
+.login {
+  width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 100px;
+
+
+}
+
+
+
+</style>
+
+
+</head>
+<body>
+
+
+<div class="container">
+  <% if flash[:msg] %>
+      <div class="msg" style= "color: red"><h1><%= flash[:msg] %></h1></div>
+  <% end %>
+
+  <div class ="signup">
+  <h2>Create a User</h2>
+  <form action="/create" method="post">
+    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+    <div class="form-group">
+      <label for="fname">First Name:</label>
+      <input type="text" class="form-control" id="fname" name= "fname" placeholder="First Name">
+    </div>
+    <div class="form-group">
+      <label for="lname">Last Name:</label>
+      <input type="text" class="form-control" id="lname" name= "lname" placeholder="Last name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name= "email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="city">Location:</label>
+      <input type="text" class="form-control" id="city" name= "city" placeholder="Enter City">
+    </div>
+    <div class="form-group">
+      <label for="state">State:</label>
+      <select name="state">
+        <option value="CA">CA</option>
+        <option value="WA">WA</option>
+        <option value="NY">NY</option>
+        <option value="HI">HI</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" name= "password" placeholder="Enter password">
+    </div>
+    <div class="form-group">
+      <label for="cpwd">Confirm Password:</label>
+      <input type="password" class="form-control" id="cpwd" name= "password_confirmation" placeholder="Enter password">
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+  </div>
+
+  <div class ="login">
+  <h2>Login</h2>
+  <form action="/login" method="post">
+    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="email" name= "email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="text" class="form-control" id="password" name= "password" placeholder="password">
+    </div>
+    <button type="submit" class="btn btn-default">Login</button>
+  </div>
+
+</div>
+
+</body>
+</html>
+
+
+<!-- rails g model Secret content:text user:references
+rails g model User fname:string lname:string email:string city:string state:string password:digest
+rails generate migration add_secret_column_to_users user:references -->

@@ -1,0 +1,55 @@
+<div class="container" style="border: 2px solid black;">
+  <br>
+  <a href="/users">All Users</a> | <a href="/events">Events Page</a> | <a href="/logout">Logout</a>
+  <h2><%= @user.fname.capitalize %>' Profile</h2>
+  <h4>Name: <%= @user.fname.capitalize %> <%= @user.lname.capitalize %></h4>
+  <h4>Location: <%= @user.city %>, <%= @user.state %></h4>
+
+  <div class="table1">
+    <h3 style="border-bottom: 1px solid black;">Hosting</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>City</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @myevents.each do |event| %>
+        <tr>
+          <td><a href="/event/<%= event.id %>"><%= event.name %></a></td>
+          <td><%=event.date %></td>
+          <td><%=event.city %></td>
+          <td><%=event.state %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table2">
+    <h3 style="border-bottom: 1px solid black;">Attending</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>City</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @myattends.each do |event| %>
+        <tr>
+          <td><a href="/event/<%= event.id %>"><%= event.name %></a></td>
+          <td><%=event.date %></td>
+          <td><%=event.city %></td>
+          <td><%=event.state %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

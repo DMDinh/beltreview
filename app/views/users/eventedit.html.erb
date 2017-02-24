@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="events" style="width: 500px;">
+
+    <form action="/eventupdate/<%= @event.id%>" method="post">
+      <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+      <div class="form-group">
+        <h3>Edit Event</h3>
+        <a href="/events">Events Page</a>
+        <br>
+        <br>
+        <label for="name">Event Name:</label>
+        <input type="text" class="form-control" id="name" name= "name" value="<%= @event.name%>">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" id="date" name= "date" value="<%= @event.date%>">
+        <label for="city">Location:</label>
+        <input type="text" class="form-control" id="city" name= "city" value="<%= @event.city%>">
+        <label for="state">State:</label>
+        <select name="state" value= "<%= @event.state%>">
+          <option value="CA">CA</option>
+          <option value="WA">WA</option>
+          <option value="NY">NY</option>
+          <option value="HI">HI</option>
+        </select>
+        <br>
+        <button type="submit" class="btn btn-default">Edit Event</button>
+      </div>
+    </form>
+
+  </div>
+</div>
